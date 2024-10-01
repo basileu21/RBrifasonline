@@ -23,6 +23,8 @@
         <section class="purchase">
             <h2>Compre sua Cota</h2>
             <form id="purchase-form" onsubmit="handleSubmit(event)">
+                <p><strong>Pedido de Rifa</strong></p> <!-- Adicionado aqui -->
+                
                 <label for="name">Nome:</label>
                 <input type="text" id="name" name="name" required>
                 
@@ -61,7 +63,7 @@
             document.getElementById('payment-info').style.display = 'block';
 
             // Gera o link do WhatsApp
-            const message = `Nome: ${name}%0AContato: ${phone}%0AQuantidade de cotas: ${quantity}%0ATotal: R$ ${totalAmount.toFixed(2)}`;
+            const message = `Pedido de Rifa%0ANome: ${name}%0AContato: ${phone}%0AQuantidade de cotas: ${quantity}%0ATotal: R$ ${totalAmount.toFixed(2)}`;
             const whatsappLink = `https://api.whatsapp.com/send?phone=27997294468&text=${message}`;
             const purchaseButton = document.createElement('a');
             purchaseButton.href = whatsappLink;
