@@ -5,26 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rifa Online - Compre sua Cota</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@400&display=swap" rel="stylesheet"> <!-- Link para as fontes -->
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@400&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
-        <h1>Rifa Online</h1>
-        <p>Participe da nossa rifa e concorra a prêmios incríveis!</p>
+        <h1>💰🤑Rifa Online🤑💰</h1>
+        <p>🍀🍀Compre sua Cota e concorra a prêmios incríveis!🍀🍀</p>
     </header>
     <main>
         <section class="info">
             <h2>Sobre a Rifa</h2>
-            <p>Estamos realizando uma rifa com cotas a partir de R$5,00 onde você pode ganhar prêmios em dinheiro de até R$500,00!</p>
-            <p>Prêmio Principal: R$500,00</p>
-            <p>20 bilhetes premiados de R$50,00 instantaneamente.</p>
+            <p>Cotas a partir de 💰R$5,00💰 onde você pode ganhar prêmios em 💵dinheiro💵 de até R$500,00!🤑🤑</p>
+            <p>🤑Prêmio Principal: 💰R$500,00💰🤑</p>
+            <p>🍀20 bilhetes 🍀premiados de 💰R$50,00💰 instantaneamente.🍀</p>
             <p>Sorteio após a venda de 70% das cotas.</p>
-            <p>90% das cotas estão disponíveis, ainda temos 20 bilhetes premiados.</p>
+            <p>🎁🎁🍀🍀90% das cotas estão disponíveis, ainda temos 20 bilhetes premiados.🍀🍀🎁🎁</p>
         </section>
         <section class="purchase">
             <h2>Compre sua Cota</h2>
             <form id="purchase-form" onsubmit="handleSubmit(event)">
-                <p><strong>Pedido de Rifa</strong></p> <!-- Adicionado aqui -->
+                <p><strong>Pedido de Rifa</strong></p>
                 
                 <label for="name">Nome:</label>
                 <input type="text" id="name" name="name" required>
@@ -51,7 +51,8 @@
     </footer>
     <script>
         function handleSubmit(event) {
-            event.preventDefault();
+            event.preventDefault(); // Previne o envio padrão do formulário
+
             const name = document.getElementById('name').value;
             const phone = document.getElementById('phone').value;
             const quantity = document.getElementById('quantity').value;
