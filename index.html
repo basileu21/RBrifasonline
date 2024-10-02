@@ -65,7 +65,7 @@
             document.getElementById('payment-info').style.display = 'block';
 
             // Gera o link do WhatsApp
-            const message = `Pedido de Rifa%0ANome: ${name}%0AContato: ${phone}%0AQuantidade de cotas: ${quantity}%0ATotal: R$ ${totalAmount.toFixed(2)}`;
+            const message = `💰Pedido de Rifa💰%0A📝Nome📝: ${name}%0A📱Contato📱: ${phone}%0A🔢Quantidade de cotas🔢: ${quantity}%0A💰Total💰: R$ ${totalAmount.toFixed(2)}`;
             const whatsappLink = `https://api.whatsapp.com/send?phone=27997294468&text=${message}`;
             const purchaseButton = document.createElement('a');
             purchaseButton.href = whatsappLink;
