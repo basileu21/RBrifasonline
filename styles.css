@@ -19,8 +19,6 @@ header {
     padding: 20px;
     text-align: center;
     animation: fadeIn 1s ease-in-out; /* Animação de fade-in para o cabeçalho */
-    position: relative;
-    z-index: 2; /* Eleva o cabeçalho acima dos emojis de fundo */
 }
 
 h1 {
@@ -28,45 +26,42 @@ h1 {
     animation: slideIn 1s ease-in-out; /* Animação de slide-in para o título */
 }
 
+h2 {
+    font-weight: bold; /* Títulos em negrito */
+}
+
 main {
     max-width: 800px;
     margin: 20px auto;
     padding: 20px;
-    background: linear-gradient(to bottom, #ffffff, #e9ecef); /* Gradiente de fundo elegante */
+}
+
+.rifas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Cria um layout em grade responsivo */
+    gap: 20px; /* Espaço entre os cartões */
+}
+
+.rifa-card {
+    background: white;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    position: relative;
-    z-index: 1; /* Garante que o conteúdo fique acima do fundo */
+    padding: 20px;
+    transition: transform 0.3s; /* Transição suave ao passar o mouse */
 }
 
-.info, .purchase {
-    margin-bottom: 20px;
+.rifa-card:hover {
+    transform: scale(1.05); /* Efeito de zoom ao passar o mouse */
 }
 
-h2 {
-    margin-bottom: 10px;
-    font-size: 1.8em;
+.prize-image {
+    max-width: 100%; /* Imagem responsiva */
+    height: auto; /* Mantém a proporção */
+    border-radius: 5px; /* Bordas arredondadas para as imagens */
 }
 
-p {
-    margin-bottom: 10px;
-}
-
-form {
-    display: flex;
-    flex-direction: column;
-}
-
-label {
-    margin: 10px 0 5px;
-}
-
-input[type="text"],
-input[type="tel"],
-input[type="number"] {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+.purchase {
+    margin-top: 15px;
 }
 
 button {
@@ -77,6 +72,8 @@ button {
     color: white;
     font-size: 1.2em;
     cursor: pointer;
+    transition: background-color 0.3s; /* Transição suave ao passar o mouse */
+    font-weight: bold; /* Botões em negrito */
 }
 
 button:hover {
