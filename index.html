@@ -5,93 +5,85 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rifa Online - Compre sua Cota</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@700&display=swap" rel="stylesheet"> <!-- Fonte em negrito -->
 </head>
 <body>
     <header>
-        <h1>💰🤑Rifa Online🤑💰</h1>
-        <p>🍀🍀Compre sua Cota e concorra a prêmios incríveis!🍀🍀</p>
+        <h1>💰🤑 Rifa Online 🤑💰</h1>
+        <p>🍀🍀 Compre sua Cota e concorra a prêmios incríveis! 🍀🍀</p>
     </header>
     <main>
-        <section class="info">
-            <h2>Sobre a Rifa</h2>
-            <p>Cotas a partir de 💰R$5,00💰 onde você pode ganhar prêmios em 💵dinheiro💵 de até R$500,00!🤑🤑</p>
-            <p>🤑Prêmio Principal: 💰R$500,00💰🤑</p>
-            <p>🍀20 bilhetes 🍀premiados de 💰R$50,00💰 instantaneamente.🍀</p>
-            <p>Sorteio após a venda de 70% das cotas.</p>
-            <p>🎁🎁🍀🍀90% das cotas estão disponíveis, ainda temos 20 bilhetes premiados.🍀🍀🎁🎁</p>
-        </section>
-        <section class="purchase">
-            <h2>Compre sua Cota</h2>
-            <form id="purchase-form" onsubmit="handleSubmit(event)">
-                <p><strong>Pedido de Rifa</strong></p>
-                
-                <label for="name">Nome:</label>
-                <input type="text" id="name" name="name" required>
-                
-                <label for="phone">Telefone:</label>
-                <input type="tel" id="phone" name="phone" required>
-                
-                <label for="quantity">Quantidade de Cotas:</label>
-                <input type="number" id="quantity" name="quantity" min="1" value="1" required>
-                
-                <button type="submit">Comprar</button>
-            </form>
-        </section>
-        <section id="payment-info" style="display:none;">
-            <h2>Informações de Pagamento</h2>
-            <p>Chave PIX: <strong>142.101.867.59</strong></p>
-            <img src="qr-code.png" alt="QR Code" width="200">
-            <p id="total-amount"></p>
-            <button onclick="confirmPayment()">Já paguei</button>
+        <section class="rifas-grid">
+            <!-- Rifa do Prêmio em Dinheiro -->
+            <div class="rifa-card">
+                <h2>Prêmio em Dinheiro</h2>
+                <img src="piximagem.jpg" alt="Prêmio em Dinheiro" class="prize-image">
+                <p>Cotas a partir de 💰R$5,00💰, onde você pode ganhar até 💵R$500,00!🤑</p>
+                <p class="counter">Cotas Disponíveis: <span id="dinheiro-counter">50%</span></p>
+                <div class="purchase">
+                    <form id="purchase-form-dinheiro" onsubmit="handleSubmit(event, 'dinheiro')">
+                        <label for="name-dinheiro">Nome:</label>
+                        <input type="text" id="name-dinheiro" name="name" required>
+                        <label for="phone-dinheiro">Telefone:</label>
+                        <input type="tel" id="phone-dinheiro" name="phone" required>
+                        <label for="quantity-dinheiro">Quantidade de Cotas:</label>
+                        <input type="number" id="quantity-dinheiro" name="quantity" min="1" value="1" required>
+                        <button type="submit">Comprar</button>
+                    </form>
+                    <div id="payment-info-dinheiro" style="display:none;">
+                        <h2>Informações de Pagamento</h2>
+                        <p>Chave PIX: <strong>142.101.867.59</strong></p>
+                        <img src="qr-code.png" alt="QR Code" width="200">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Rifa do Kit de Folheados -->
+            <div class="rifa-card">
+                <h2>Kit de Folheados</h2>
+                <img src="kit_folheados.jpg" alt="Kit de Folheados" class="prize-image">
+                <p>Cotas a partir de 💰R$3,00💰, ganhe um kit com cordão, pulseira e brinco!</p>
+                <p class="counter">Cotas Disponíveis: <span id="kit-counter">40%</span></p>
+                <div class="purchase">
+                    <form id="purchase-form-kit" onsubmit="handleSubmit(event, 'kit')">
+                        <label for="name-kit">Nome:</label>
+                        <input type="text" id="name-kit" name="name" required>
+                        <label for="phone-kit">Telefone:</label>
+                        <input type="tel" id="phone-kit" name="phone" required>
+                        <label for="quantity-kit">Quantidade de Cotas:</label>
+                        <input type="number" id="quantity-kit" name="quantity" min="1" value="1" required>
+                        <button type="submit">Comprar</button>
+                    </form>
+                    <div id="payment-info-kit" style="display:none;">
+                        <h2>Informações de Pagamento</h2>
+                        <p>Chave PIX: <strong>142.101.867.59</strong></p>
+                        <img src="qr-code.png" alt="QR Code" width="200">
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
     <footer>
         <p>&copy; 2024 Rifa Online. Todos os direitos reservados.</p>
     </footer>
     <script>
-        function handleSubmit(event) {
-            event.preventDefault(); // Previne o envio padrão do formulário
+        function handleSubmit(event, type) {
+            event.preventDefault();
 
-            const name = document.getElementById('name').value;
-            const phone = document.getElementById('phone').value;
-            const quantity = document.getElementById('quantity').value;
+            const name = document.getElementById(`name-${type}`).value;
+            const phone = document.getElementById(`phone-${type}`).value;
+            const quantity = document.getElementById(`quantity-${type}`).value;
 
             // Calcula o total em reais
-            const totalAmount = quantity * 5;
-            document.getElementById('total-amount').innerText = `Total a pagar: R$ ${totalAmount.toFixed(2)}`;
-
-            // Mostra as informações de pagamento
-            document.getElementById('payment-info').style.display = 'block';
-
-            // Gera o link do WhatsApp
+            const totalAmount = type === 'dinheiro' ? quantity * 5 : quantity * 3; // 5 para dinheiro, 3 para kit
+            const paymentInfo = document.getElementById(`payment-info-${type}`);
             const message = `💰Pedido de Rifa💰%0A📝Nome📝: ${name}%0A📱Contato📱: ${phone}%0A🔢Quantidade de cotas🔢: ${quantity}%0A💰Total💰: R$ ${totalAmount.toFixed(2)}`;
             const whatsappLink = `https://api.whatsapp.com/send?phone=27997294468&text=${message}`;
-            const purchaseButton = document.createElement('a');
-            purchaseButton.href = whatsappLink;
-            purchaseButton.target = '_blank';
-            purchaseButton.innerText = 'Enviar Pedido';
-            purchaseButton.style.display = 'block';
-            purchaseButton.style.marginTop = '10px';
-            purchaseButton.style.padding = '10px';
-            purchaseButton.style.backgroundColor = '#007BFF';
-            purchaseButton.style.color = 'white';
-            purchaseButton.style.textAlign = 'center';
-            purchaseButton.style.borderRadius = '5px';
-            purchaseButton.style.textDecoration = 'none';
-            document.getElementById('purchase-form').appendChild(purchaseButton);
-        }
 
-        function confirmPayment() {
-            const name = document.getElementById('name').value;
-            const phone = document.getElementById('phone').value;
-            const quantity = document.getElementById('quantity').value;
-            const totalAmount = quantity * 5;
-
-            // Gera a mensagem de confirmação de pagamento
-            const confirmationMessage = `💰Já paguei!💰%0A📝Nome📝: ${name}%0A:📱Contato📱:: ${phone}%0A🔢Quantidade de cotas🔢: ${quantity}%0A💰Total💰: R$ ${totalAmount.toFixed(2)}`;
-            const confirmationLink = `https://api.whatsapp.com/send?phone=27997294468&text=${confirmationMessage}`;
-            window.open(confirmationLink, '_blank');
+            // Mostra as informações de pagamento
+            paymentInfo.style.display = 'block';
+            paymentInfo.innerHTML += `<p>Total a pagar: R$ ${totalAmount.toFixed(2)}</p>
+                                      <a href="${whatsappLink}" target="_blank">Enviar Pedido</a>`;
         }
     </script>
 </body>
