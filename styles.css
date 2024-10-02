@@ -5,15 +5,12 @@
 }
 
 body {
-    font-family: 'Roboto', sans-serif; /* Fonte mais sofisticada */
+    font-family: 'Roboto', sans-serif;
     background-color: #f4f4f4;
     color: #333;
-    animation: fadeIn 1s; /* Animação de fade-in ao carregar a página */
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    background-image: url('https://em-content.zobj.net/source/microsoft-teams/337/money-bag_1f4b0.png');
+    background-size: 50px 50px; /* Tamanho dos emojis de dinheiro */
+    background-repeat: repeat; /* Repetir o fundo */
 }
 
 header {
@@ -21,32 +18,25 @@ header {
     color: white;
     padding: 20px;
     text-align: center;
-    animation: slideDown 0.5s; /* Animação de deslizamento do cabeçalho */
-}
-
-@keyframes slideDown {
-    from { transform: translateY(-20px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
+    animation: fadeIn 1s ease-in-out; /* Animação de fade-in para o cabeçalho */
+    position: relative;
+    z-index: 2; /* Eleva o cabeçalho acima dos emojis de fundo */
 }
 
 h1 {
     font-size: 2.5em;
-    font-family: 'Pacifico', cursive; /* Fonte elegante para o título */
+    animation: slideIn 1s ease-in-out; /* Animação de slide-in para o título */
 }
 
 main {
     max-width: 800px;
     margin: 20px auto;
     padding: 20px;
-    background: white;
+    background: linear-gradient(to bottom, #ffffff, #e9ecef); /* Gradiente de fundo elegante */
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    animation: popIn 0.5s; /* Animação de "pop" ao abrir */
-}
-
-@keyframes popIn {
-    from { transform: scale(0.95); opacity: 0; }
-    to { transform: scale(1); opacity: 1; }
+    position: relative;
+    z-index: 1; /* Garante que o conteúdo fique acima do fundo */
 }
 
 .info, .purchase {
@@ -56,14 +46,6 @@ main {
 h2 {
     margin-bottom: 10px;
     font-size: 1.8em;
-    position: relative;
-}
-
-h2::after {
-    content: '💰🍀'; /* Emojis de dinheiro e sorte */
-    position: absolute;
-    right: -30px;
-    font-size: 1.5em;
 }
 
 p {
@@ -85,13 +67,6 @@ input[type="number"] {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    transition: border-color 0.3s; /* Transição suave para mudança de borda */
-}
-
-input[type="text"]:focus,
-input[type="tel"]:focus,
-input[type="number"]:focus {
-    border-color: #007BFF; /* Cor da borda ao focar */
 }
 
 button {
@@ -102,20 +77,6 @@ button {
     color: white;
     font-size: 1.2em;
     cursor: pointer;
-    position: relative;
-    overflow: hidden; /* Para efeitos de animação */
-}
-
-button::after {
-    content: '💸'; /* Emoji de dinheiro */
-    position: absolute;
-    left: 10px;
-    opacity: 0; /* Inicialmente invisível */
-    transition: opacity 0.3s; /* Transição suave */
-}
-
-button:hover::after {
-    opacity: 1; /* Fica visível ao passar o mouse */
 }
 
 button:hover {
@@ -126,4 +87,25 @@ footer {
     text-align: center;
     margin-top: 20px;
     font-size: 0.9em;
+}
+
+/* Animações */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
