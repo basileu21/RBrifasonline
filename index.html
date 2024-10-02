@@ -89,7 +89,7 @@
             const totalAmount = quantity * 5;
 
             // Gera a mensagem de confirmação de pagamento
-            const confirmationMessage = `Já paguei!%0ANome: ${name}%0AContato: ${phone}%0AQuantidade de cotas: ${quantity}%0ATotal: R$ ${totalAmount.toFixed(2)}`;
+            const confirmationMessage = `💰Já paguei!💰%0A📝Nome📝: ${name}%0A:📱Contato📱:: ${phone}%0A🔢Quantidade de cotas🔢: ${quantity}%0A💰Total💰: R$ ${totalAmount.toFixed(2)}`;
             const confirmationLink = `https://api.whatsapp.com/send?phone=27997294468&text=${confirmationMessage}`;
             window.open(confirmationLink, '_blank');
         }
